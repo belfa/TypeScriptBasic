@@ -1,5 +1,12 @@
 var Coche = (function () {
-    function Coche() {
+    function Coche(modelo) {
+        if (modelo === void 0) { modelo = ""; }
+        this.color = "Blanco";
+        this.velocidad = 0;
+        if (modelo == "")
+            this.modelo = "BMW";
+        else
+            this.modelo = modelo;
     }
     Coche.prototype.getColor = function () {
         return this.color;

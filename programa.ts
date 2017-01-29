@@ -40,3 +40,25 @@ class EditorVideo extends Programa{
 var editor = new EditorVideo();
 editor.setVersion(8).setNombre('Camtasia Studio').setTimeline(4000);
 console.debug(editor.getAllData());
+
+// Lógica del formulario
+
+var programas:Array<Programa> = [];
+
+function guardar(){
+    var nombre = (<HTMLInputElement>document.getElementById("nombre")).value.toString();
+
+    var programa  = new Programa();
+    programa.setNombre(nombre);
+
+    programas.push(programa);
+
+    var list = "";
+    for(var i = 0; i < programas.length; i++){
+        list+="<li>"+programas[i].getNombre()+"</li>";
+    }
+
+    var listado = <HTMLElement>document.getElementById("listado");
+
+    listado.innerHTML = list;
+}

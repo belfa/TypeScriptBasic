@@ -1,3 +1,13 @@
+//Función para decorar
+function arranque(lanzar: string){
+    return (target: Function)=>{
+      target.prototype.lanzamiento = function():void{
+          console.log(lanzar);
+      }
+    };
+}
+
+@arranque('Lanzamiento de TypeScript')
 class Programa{
     public nombre: string;
     public version: number;
@@ -19,6 +29,9 @@ class Programa{
         return this.version;
     }
 }
+var programa = new Programa();
+
+programa.lanzamiento();
 
 class EditorVideo extends Programa{
     public timeline:number;
@@ -36,6 +49,8 @@ class EditorVideo extends Programa{
         return "Nombre: "+this.getNombre()+" - Version: "+this.getVersion()+" - Time Line: "+this.getTimeline();
     }
 }
+
+
 
 var editor = new EditorVideo();
 editor.setVersion(8).setNombre('Camtasia Studio').setTimeline(4000);

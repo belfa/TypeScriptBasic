@@ -1,3 +1,21 @@
+//Ejemplo de modulo
+
+module Tienda {
+    export class Ropa{
+        constructor(public titulo:string){
+            alert(titulo);
+        }
+    }
+    export class Informatica{
+        constructor(public titulo:string){
+            alert('Tienda de tecnologia: '+titulo);
+        }
+    }
+}
+
+import Informatica = Tienda.Informatica;
+let cargar_informatica = new Informatica('SuperTienda');
+
 //Función para decorar
 function arranque(lanzar: string){
     return (target: Function)=>{
